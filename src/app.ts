@@ -13,6 +13,7 @@ app.get('/books', bookController.allBooks)
 app.get('/book/:id', bookController.getBook)
 app.post('/book', bookController.addBook)
 app.delete('/book/:id', bookController.deleteBook)
+app.put('/book/:id', bookController.updateBook)
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
