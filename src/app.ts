@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/books', bookController.allBooks)
 app.get('/book/:id', bookController.getBook)
 app.post('/book', bookController.addBook)
+app.delete('/book/:id', bookController.deleteBook)
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);

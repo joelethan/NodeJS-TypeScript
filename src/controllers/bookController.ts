@@ -39,4 +39,13 @@ export let addBook = (req: Request, res: Response) => {
 
 
 // - DELETE - /book/{1} # deletes a book with id of 1
+export let deleteBook = (req: Request, res: Response) => {
+    Book.deleteOne({ _id: req.params.id }, (err: any) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send("Successfully deleted the book")
+        }
+    })
+}
 // - PUT - /book/{1} # updates a book with id of 1
