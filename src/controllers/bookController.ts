@@ -17,13 +17,26 @@ export let allBooks = (req: Request, res: Response) => {
 export let getBook = (req: Request, res: Response) => {
     Book.findById(req.params.id, (error: any, book: any) => {
         if (error) {
-            res.json({error})
+            res.send(error)
         } else {
-            res.json({book})
+            res.send(book)
         }
     })
 }
 
 // - POST - /book # inserts a new book into the DB
+export let addBook = (req: Request, res: Response) => {
+    let book = new Book(req.body);
+
+    book.save((error: any) => {
+        if(error){
+            res.send(error)
+        } else {
+            res.send(book)
+        }
+    })
+}
+
+
 // - DELETE - /book/{1} # deletes a book with id of 1
 // - PUT - /book/{1} # updates a book with id of 1
